@@ -5,21 +5,24 @@
     <title>Title</title>
 </head>
 <body>
+<a>Welcome to Swiss Bank</a><br />
 <a href="/add">Add a Transaction</a><br />
 <table>
 <tr>
     <th>Account Number</th>
-    <th>Action</th>
     <th>Amount</th>
-    <td>Reason</td>
+    <th>Reason</th>
+    <th>Action</th>
+
 </tr>
-<tr th:each="transaction :${transactions}">
+<tr th:each="transaction : ${transactions}">
     <td th:text="${transaction.accountNumber}"></td>
-    <td th:text="${transaction.action}"></td>
     <td th:text="${transaction.amount}"></td>
     <td th:text="${transaction.reason}"></td>
     <td>
 
+        <a th:href="@{/withdraw/{id}(id=${transaction.id})}">Withdraw</a>
+        <a th:href="@{/deposit/{id}(id=${transaction.id})}">Deposit</a>
         <a th:href="@{/detail/{id}(id=${transaction.id})}">Details</a>
 
     </td>

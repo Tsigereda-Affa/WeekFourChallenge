@@ -18,11 +18,11 @@ public class HomeController {
 
     @RequestMapping("/")
     public String listTransaction(Model model){
-        model.addAttribute("transaction", transactionRepository.findAll());
+        model.addAttribute("transactions", transactionRepository.findAll());
         return "list";
     }
     @GetMapping("/add")
-    public String courseForm(Model model){
+    public String transactionForm(Model model){
         model.addAttribute("transaction", new Transaction());
         return "transactionform";
     }
@@ -40,5 +40,14 @@ public class HomeController {
         model.addAttribute("transaction", transactionRepository.findById(id).get());
         return "show";
     }
-
+    @RequestMapping("/withdraw/{id}")
+    public String withdrawTransaction(@PathVariable("id") long id, Model model){
+        model.addAttribute("transaction", transactionRepository.findById(id).get());
+        return "transactionform";
+    }
+    @RequestMapping("/deposit/{id}")
+    public String depTransaction(@PathVariable("id") long id){
+        transactionRepository.deleteById(id);
+        return "transactionform";
+    }
 }

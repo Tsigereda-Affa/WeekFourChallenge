@@ -14,9 +14,7 @@ public class Transaction {
     private long id;
 
 
-    @NotNull
-    @Size(min=7)
-    public String action;
+
 
     @NotNull
     @Size(min=3)
@@ -63,14 +61,9 @@ public class Transaction {
     private String amount;
 
     @NotNull
-    @Size(min=5)
+    @Size(min=3)
     private String reason;
 
-    public String getAction() {
-        return action;
+
     }
 
-    public void setAction(String action) {
-        this.action = action;
-    }
-}

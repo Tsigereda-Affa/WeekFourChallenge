@@ -5,12 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/">Show All transactions</a><br />
+<a href="/">Show All Transactions</a><br />
 Account Number :<span th:text="${transaction.accountNumber}" ></span><br />
-Action :<span th:text="${transaction.action}" ></span><br />
 Amount :<span th:text="${transaction.amount}" ></span>
 Reason :<span th:text="${transaction.reason}" ></span><br />
-<a th:href="@{/detail/{id}(id=${transaction.id})}">Detail</a>
+
 
 </body>
 </html>
