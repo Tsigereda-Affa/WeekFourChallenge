@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<a href="/add">Add a Transaction</a><br />
+<table>
+<tr>
+    <th>Account Number</th>
+    <th>Action</th>
+    <th>Amount</th>
+    <td>Reason</td>
+</tr>
+<tr th:each="transaction :${transactions}">
+    <td th:text="${transaction.accountNumber}"></td>
+    <td th:text="${transaction.action}"></td>
+    <td th:text="${transaction.amount}"></td>
+    <td th:text="${transaction.reason}"></td>
+    <td>
+
+        <a th:href="@{/detail/{id}(id=${transaction.id})}">Detail</a>
+
+    </td>
+
+</tr>
+</table>
+</body>
+</html>
